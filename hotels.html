@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sedona</title>
+    <!--google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/518be63f39.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container navigation-container">
+                <div class="navigation-container-left-navigation">
+                    <span class="navigation-logo"><img src="./imgaes/logo.png" alt="sedona logo"></span>
+                    <ul class="navigation-links">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="index.html#about-sedona-anchor">About Sedona</a></li>
+                        <li><a class="active" href="./hotels.html">Hotels</a></li>
+                    </ul>
+                </div>
+                <div class="navigation-container-right-navigation">
+                    <ul class="navigation-links">
+                        <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                        <li class="liked-hotels-container">
+                            <i class="fa-regular fa-heart"></i>
+                            <span class="liked-hotels-counter">13</span>
+                        </li>
+                        <li><a href="#sedona-headline"><button class="button">I WANT HERE!</button></a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <section>
+            <article class="hotels-search-setings">
+                <div class="hotels-search-setings-container">
+                    <h1>Sedona Hotels</h1>
+                    <span class="hotels-search-setings-container-page-navigation">
+                        <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+                        <p>></p>
+                        <p>Hotels</p>
+                    </span>
+
+                    <div class="inputs-container">
+                        <div class="checks-container">
+                            <div class="facilities">
+                                <p>Facilities:</p>
+                                <form>
+                                    <label class="label-container">Pool
+                                        <input name="facilities" id="pool" type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                    <label class="label-container">Parking
+                                        <input name="facilities" id="parking" type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                    <label class="label-container">Wi-Fi
+                                        <input name="facilities" id="wi-fi" type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+
+                                </form>
+                            </div>
+
+                            <div class="housing">
+                                <p>Housing:</p>
+                                <form>
+                                    <label class="label-container">Hotel
+                                        <input name="housing" id="hotel" type="radio">
+                                        <span class="checkmark radio-btn"></span>
+                                    </label>
+
+                                    <label class="label-container">Motel
+                                        <input name="housing" id="motel" type="radio">
+                                        <span class="checkmark radio-btn"></span>
+                                    </label>
+
+                                    <label class="label-container">Apartment
+                                        <input name="housing" id="appartment" type="radio">
+                                        <span class="checkmark radio-btn"></span>
+                                    </label>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="right-side-inputs">
+                            <div class="slider-wrapper">
+                                <p>Price, $:</p>
+                                <div class="slider-container">
+                                    <div class="slider-values">
+                                        <div class="range-value-contaniner">
+                                            <span id="range1">0</span><span>from</span>
+                                        </div>
+                                        <div class="range-value-contaniner">
+                                            <span id="range2">10000</span><span>to</span>
+                                        </div>
+                                    </div>
+                                    <div class="slider-content">
+                                        <div id="slider-track" class="slider-track"></div>
+                                        <input type="range" name="slider-1" value="0" id="slider-1" min="0" max="100">
+                                        <input type="range" name="slider-2" value="100" id="slider-2" min="0" max="100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="final-buttons">
+                                <button id="submit-hotels-search-setings-btn" class="blue-button">APPLY</button>
+                                <button id="clear-hotels-search-setings-btn" class="no-color-button">CLEAR</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <article class="secondary-headline subscribe-section">
+                <h1>Subscribe to newsletter</h1>
+                <p>Only useful information and no spam, for real!</p>
+                <form>
+                    <input placeholder="Your e-mail" type="email" name="email" id="email">
+                    <input class="blue-button" type="submit" id="submit-btn">
+                </form>
+                <span>
+                    <div></div>
+                </span>
+            </article>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <ul class="navigation-links media-links">
+                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a target="_blank" href="https://t.me/htmlacademy "><i class="fa-brands fa-telegram"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/user/htmlacademyru"><i
+                            class="fa-brands fa-youtube"></i> </a></li>
+            </ul>
+            <a class="navigation-footer-phone-link" href="tel:123-456-7890">(+123) 456-78-90</a>
+            <a class="htmlacademy-logo" href="https://htmlacademy.ru/"><img src="./imgaes/logo_htmlacademy.png"
+                    alt="htmlacademy-logo"></a>
+        </div>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+
+</html>
