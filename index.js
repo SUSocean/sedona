@@ -1,7 +1,10 @@
+import { hotels } from './data.js'
+
 window.onload = function () {
     slideOne()
     slideTwo()
 }
+
 
 document.addEventListener('click', function (e) {
     if (e.srcElement.id === 'decrement-adults' && document.getElementById('adults').value > 0) {
@@ -25,6 +28,7 @@ document.addEventListener('click', function (e) {
     }
 })
 
+// navigation focus with scroll setting
 
 document.addEventListener('scroll', function () {
     if (scrollY > 696) {
@@ -36,14 +40,15 @@ document.addEventListener('scroll', function () {
     }
 })
 
+
+
+// slider functions (needs to be sorted )
 let sliderOne = document.getElementById('slider-1')
 let sliderTwo = document.getElementById('slider-2')
-let displayValOne = document.getElementById('range1')
-let displayValTwo = document.getElementById('range2')
 let minGap = 10
-let sliderTrack = document.getElementById('slider-track')
 let sliderMaxValue = document.getElementById('slider-1').max
-
+let percent1 = 0
+let percent2 = 0
 
 
 sliderOne.addEventListener('input', slideOne)
@@ -55,7 +60,7 @@ function slideOne() {
     if (sliderTwo.value - sliderOne.value <= minGap) {
         sliderOne.value = sliderTwo.value - minGap
     }
-    displayValOne.textContent = sliderOne.value * 100
+    document.getElementById('range1').textContent = sliderOne.value * 100
     fillColor()
 }
 
@@ -63,12 +68,31 @@ function slideTwo() {
     if (sliderTwo.value - sliderOne.value <= minGap) {
         sliderTwo.value = sliderOne.value + minGap
     }
-    displayValTwo.textContent = sliderTwo.value * 100
+    document.getElementById('range2').textContent = sliderTwo.value * 100
     fillColor()
 }
 
 function fillColor() {
     percent1 = (sliderOne.value / sliderMaxValue) * 100
     percent2 = (sliderTwo.value / sliderMaxValue) * 100
-    sliderTrack.style.background = `linear-gradient(to right, #ccc ${percent1}% , #3F5E72 ${percent1}% , #3F5E72 ${percent2}%, #ccc ${percent2}%)`
+    document.getElementById('slider-track').style.background = `linear-gradient(to right, #ccc ${percent1}% , #3F5E72 ${percent1}% , #3F5E72 ${percent2}%, #ccc ${percent2}%)`
 }
+
+//  hotels display functions
+
+function getFinalHTML(array) {
+    let finalHTML = ``
+    array.forEach(element => {
+        finalHTML += `
+            <div class='hotel-card'>
+                <img src='${element.picture}' alt='${element.name} picture'>
+            </div>
+        `
+    });
+    return finalHTML
+}
+
+function render(array) {
+    document.getElementById('hotels').innerHTML = getFinalHTML(array)
+}
+render(hotels)

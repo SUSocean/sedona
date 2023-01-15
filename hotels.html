@@ -137,6 +137,24 @@
             </article>
         </section>
 
+        <main class="hotels-select-container">
+            <div class="hotels-select-header">
+                <span id="total-hotels-found" class='total-hotels-found'>HOTELS FOUND: </span>
+                <div class="hotels-select-display-settings">
+                    <select name="hotels-by-price-display" id="hotels-by-price-display">
+                        <option value="low-price-first">Low price first</option>
+                        <option value="high-price-first">High price first</option>
+                    </select>
+                    <div class="hotels-grid-display ">
+                        <i class="fa-solid fa-grip active-grid-display"></i>
+                        <i class="fa-solid fa-tv"></i>
+                        <i class="fa-solid fa-list"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="hotels" class="hotels hotels-grid-version"></div>
+        </main>
+
         <section>
             <article class="secondary-headline subscribe-section">
                 <h1>Subscribe to newsletter</h1>
@@ -152,7 +170,6 @@
         </section>
 
     </main>
-
     <footer>
         <div class="container footer-container">
             <ul class="navigation-links media-links">
@@ -166,7 +183,7 @@
                     alt="htmlacademy-logo"></a>
         </div>
     </footer>
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
 </body>
 
 </html>

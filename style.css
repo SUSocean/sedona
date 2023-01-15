@@ -512,7 +512,7 @@ form .hotels-find-btn {
 .hotels-search-setings {
     background-image: url(./imgaes/backgroundblured.png);
     background-size: cover;
-    height: 450px;
+    height: 530px;
     padding-top: 64px;
     color: white;
 }
@@ -589,8 +589,6 @@ form .hotels-find-btn {
 
 /* radio button */
 
-
-
 .label-container .radio-btn {
     border-radius: 50%;
 }
@@ -661,7 +659,6 @@ form .hotels-find-btn {
 }
 
 .slider-container {
-    /* position: relative; */
     width: 400px;
 }
 
@@ -761,6 +758,57 @@ form .hotels-find-btn {
     opacity: 70%;
 }
 
+/* hotel select main */
+
+.hotels-select-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.hotels-select-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 0;
+}
+
+.total-hotels-found {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.hotels-select-display-settings {
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hotels-select-display-settings select,
+.hotels-select-display-settings select option {
+    width: 400px;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 1.3rem;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
+}
+
+.hotels-grid-display {
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+}
+
+.hotels-grid-display i {
+    border: 3px solid #E5E5E5;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.hotels-grid-display .active-grid-display {
+    border: 3px solid black;
+}
+
 /* ANIMATIONS */
 
 .navigation-container-left-navigation .navigation-links a:hover {
@@ -819,12 +867,15 @@ button:focus {
 .htmlacademy-logo:hover,
 .htmlacademy-logo:focus,
 .hotels-search-setings-container span i:hover,
-.hotels-search-setings-container span i:focus {
+.hotels-search-setings-container span i:focus,
+.no-color-button:hover,
+.no-color-button:focus {
     opacity: 70%;
 }
 
 .htmlacademy-logo:active,
-.hotels-search-setings-container span i:active {
+.hotels-search-setings-container span i:active,
+.no-color-button:active {
     opacity: 30%;
 }
 
@@ -847,4 +898,17 @@ button:focus {
 .close-popup-btn:active,
 .input-btn:active {
     opacity: 60%;
+}
+
+
+
+/* HOTELS SELECT CONTAINER */
+
+.hotels-select-display-settings select:hover,
+.hotels-select-display-settings select:focus {
+    border: 1px solid #68A2CA;
+}
+
+.hotels-select-display-settings select:active {
+    border: 1px solid #3F5E72;
 }
