@@ -1,4 +1,5 @@
 import { hotels } from './data.js'
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 window.onload = function () {
     slideOne()
@@ -31,10 +32,10 @@ document.addEventListener('click', function (e) {
 // navigation focus with scroll setting
 
 document.addEventListener('scroll', function () {
-    if (scrollY > 696) {
+    if (scrollY > 696 && !document.getElementById('hotels-nav-link').classList.contains('active')) {
         document.getElementById('about-nav-link').classList.add('active')
         document.getElementById('home-nav-link').classList.remove('active')
-    } else if (scrollY < 696) {
+    } else if (scrollY < 696 && !document.getElementById('hotels-nav-link').classList.contains('active')) {
         document.getElementById('about-nav-link').classList.remove('active')
         document.getElementById('home-nav-link').classList.add('active')
     }
@@ -80,12 +81,34 @@ function fillColor() {
 
 //  hotels display functions
 
+function getStartHTML(element) {
+    let starsHTML = ``
+    for (let i = 0; i < element.stars; i++) {
+        starsHTML += `<i class="fa-sharp fa-solid fa-star"></i>`
+    }
+    return starsHTML
+}
+
 function getFinalHTML(array) {
+
     let finalHTML = ``
     array.forEach(element => {
         finalHTML += `
             <div class='hotel-card'>
                 <img src='${element.picture}' alt='${element.name} picture'>
+                <h2 class='hotel-card-name'>${element.name}</h2>
+                <div class="spcBtn-container">
+                    <span class='hotel-card-type'>${element.type}</span>
+                    <span class='hotel-card-price'>${element.price} $</span>
+                </div>
+                <div class="spcBtn-container">
+                    <button id='reserve-btn' class='button'>RESERVE</button>
+                    <button id='add-to-favorite-btn' class='button blue-button'>RESERVE</button>
+                </div>
+                <div class="spcBtn-container">
+                    <span class="hotel-card-stars-container"> ${getStartHTML(element)}</span>
+                    <span class="hotel-card-score">SCORE: ${element.score}</span>
+                </div>
             </div>
         `
     });
@@ -93,6 +116,8 @@ function getFinalHTML(array) {
 }
 
 function render(array) {
+    document.getElementById('total-hotels-found').textContent = `HOTELS FOUND: ${array.length}`
     document.getElementById('hotels').innerHTML = getFinalHTML(array)
 }
+
 render(hotels)

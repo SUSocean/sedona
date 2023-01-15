@@ -809,6 +809,49 @@ form .hotels-find-btn {
     border: 3px solid black;
 }
 
+.hotels {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 3rem;
+    gap: 15px;
+}
+
+.hotel-card {
+    width: 330px;
+    height: 450px;
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    padding: 15px;
+}
+
+.spcBtn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotel-card img,
+.hotel-card-name,
+.spcBtn-container {
+    margin-bottom: 1rem;
+}
+
+.hotel-card-type,
+.hotel-card-price {
+    font-size: 1.5rem;
+}
+
+.hotel-card-stars-container {
+    color: #68A2CA;
+    display: flex;
+    gap: 7px;
+}
+
+.hotel-card-score {
+    background: #F2F2F2;
+    padding: 10px 28px;
+    border-radius: 3px;
+}
+
 /* ANIMATIONS */
 
 .navigation-container-left-navigation .navigation-links a:hover {
