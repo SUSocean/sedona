@@ -81,7 +81,7 @@ function fillColor() {
 
 //  hotels display functions
 
-function getStartHTML(element) {
+function getStarHTML(element) {
     let starsHTML = ``
     for (let i = 0; i < element.stars; i++) {
         starsHTML += `<i class="fa-sharp fa-solid fa-star"></i>`
@@ -103,10 +103,10 @@ function getFinalHTML(array) {
                 </div>
                 <div class="spcBtn-container">
                     <button id='reserve-btn' class='button'>RESERVE</button>
-                    <button id='add-to-favorite-btn' class='button blue-button'>RESERVE</button>
+                    <button id='add-to-favorite-btn' data-uiid="${element.uiid}" class='button blue-button'>Favorites</button>
                 </div>
                 <div class="spcBtn-container">
-                    <span class="hotel-card-stars-container"> ${getStartHTML(element)}</span>
+                    <span class="hotel-card-stars-container"> ${getStarHTML(element)}</span>
                     <span class="hotel-card-score">SCORE: ${element.score}</span>
                 </div>
             </div>
@@ -121,3 +121,34 @@ function render(array) {
 }
 
 render(hotels)
+
+
+// gett liked hotels array and html
+
+document.addEventListener('click', function (e) {
+    if (e.target.dataset.uiid) {
+        hotels.forEach(function (hotel) {
+            if (hotel.uiid === e.target.dataset.uiid) {
+                hotel.isInFavorite = true
+            }
+        })
+        getLikedHotels()
+        if (getLikedHotels().length > 0) {
+            document.getElementById('liked-hotels-counter').classList.remove('hidden')
+            document.getElementById('liked-hotels-counter').innerText = getLikedHotels().length
+        }
+
+    }
+    console.log(getLikedHotels())
+})
+
+function getLikedHotels() {
+    let likedHotels = []
+    hotels.forEach(function (hotel) {
+        if (hotel.isInFavorite) {
+            likedHotels.push(hotel)
+        }
+    })
+    return likedHotels
+}
+
