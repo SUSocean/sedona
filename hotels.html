@@ -38,9 +38,9 @@
                 </div>
                 <div class="navigation-container-right-navigation">
                     <ul class="navigation-links">
-                        <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                        <li><i data-allhotels='allhotels' class="fa-solid fa-magnifying-glass"></i></li>
                         <li class="liked-hotels-container">
-                            <i class="fa-regular fa-heart"><sup id="liked-hotels-counter"
+                            <i data-like='favoriteHotels' class="fa-regular fa-heart"><sup id="liked-hotels-counter"
                                     class="liked-hotels-counter hidden"></sup></i>
                         </li>
                         <li><a href="#sedona-headline"><button class="button">I WANT HERE!</button></a></li>
@@ -142,8 +142,8 @@
                 <span id="total-hotels-found" class='total-hotels-found'></span>
                 <div class="hotels-select-display-settings">
                     <select name="hotels-by-price-display" id="hotels-by-price-display">
-                        <option value="low-price-first">Low price first</option>
                         <option value="high-price-first">High price first</option>
+                        <option value="low-price-first">Low price first</option>
                     </select>
                     <div class="hotels-grid-display ">
                         <i class="fa-solid fa-grip active-grid-display"></i>

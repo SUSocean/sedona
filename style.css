@@ -852,6 +852,16 @@ form .hotels-find-btn {
     border-radius: 3px;
 }
 
+.addToFaws {
+    background: #7DB54F;
+}
+
+.spcBtn-container .addToFaws:active,
+.spcBtn-container .addToFaws:hover,
+.spcBtn-container .addToFaws:focus {
+    background: #7DB54F;
+}
+
 /* ANIMATIONS */
 
 .navigation-container-left-navigation .navigation-links a:hover {

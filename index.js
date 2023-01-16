@@ -61,7 +61,7 @@ function slideOne() {
     if (sliderTwo.value - sliderOne.value <= minGap) {
         sliderOne.value = sliderTwo.value - minGap
     }
-    document.getElementById('range1').textContent = sliderOne.value * 100
+    document.getElementById('range1').textContent = sliderOne.value * 5
     fillColor()
 }
 
@@ -69,7 +69,7 @@ function slideTwo() {
     if (sliderTwo.value - sliderOne.value <= minGap) {
         sliderTwo.value = sliderOne.value + minGap
     }
-    document.getElementById('range2').textContent = sliderTwo.value * 100
+    document.getElementById('range2').textContent = sliderTwo.value * 5
     fillColor()
 }
 
@@ -90,9 +90,10 @@ function getStarHTML(element) {
 }
 
 function getFinalHTML(array) {
-
     let finalHTML = ``
     array.forEach(element => {
+        const faworite = ((element.isInFavorite) ? 'addToFaws' : '')
+        const inner = ((element.isInFavorite) ? 'Added' : 'Favorites')
         finalHTML += `
             <div class='hotel-card'>
                 <img src='${element.picture}' alt='${element.name} picture'>
@@ -103,7 +104,7 @@ function getFinalHTML(array) {
                 </div>
                 <div class="spcBtn-container">
                     <button id='reserve-btn' class='button'>RESERVE</button>
-                    <button id='add-to-favorite-btn' data-uiid="${element.uiid}" class='button blue-button'>Favorites</button>
+                    <button id='${element.uiid}' data-uiid="${element.uiid}" class='button blue-button ${faworite}'>${inner}</button>
                 </div>
                 <div class="spcBtn-container">
                     <span class="hotel-card-stars-container"> ${getStarHTML(element)}</span>
@@ -128,26 +129,34 @@ render(hotels)
 document.addEventListener('click', function (e) {
     if (e.target.dataset.uiid) {
         hotels.forEach(function (hotel) {
-            if (hotel.uiid === e.target.dataset.uiid) {
+            if (hotel.uiid === e.target.dataset.uiid && !hotel.isInFavorite) {
                 hotel.isInFavorite = true
+                document.getElementById(`${e.target.dataset.uiid}`).classList.toggle('addToFaws')
+                document.getElementById(`${e.target.dataset.uiid}`).innerText = 'added'
+            } else if (hotel.uiid === e.target.dataset.uiid && hotel.isInFavorite) {
+                hotel.isInFavorite = false
+                document.getElementById(`${e.target.dataset.uiid}`).classList.toggle('addToFaws')
+                document.getElementById(`${e.target.dataset.uiid}`).innerText = 'Favorites'
             }
         })
-        getLikedHotels()
         if (getLikedHotels().length > 0) {
             document.getElementById('liked-hotels-counter').classList.remove('hidden')
             document.getElementById('liked-hotels-counter').innerText = getLikedHotels().length
+        } else {
+            document.getElementById('liked-hotels-counter').classList.add('hidden')
         }
 
+    } else if (e.target.dataset.like) {
+        render(getLikedHotels())
+    } else if (e.target.dataset.allhotels) {
+        render(hotels)
     }
-    console.log(getLikedHotels())
 })
 
 function getLikedHotels() {
     let likedHotels = []
-    hotels.forEach(function (hotel) {
-        if (hotel.isInFavorite) {
-            likedHotels.push(hotel)
-        }
+    likedHotels = hotels.filter(function (hotel) {
+        return hotel.isInFavorite
     })
     return likedHotels
 }
