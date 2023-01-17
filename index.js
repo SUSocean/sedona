@@ -117,6 +117,11 @@ function getFinalHTML(array) {
 }
 
 function render(array) {
+    if (document.getElementById('hotels-by-price-display').value === 'high-price-first') {
+        array.sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
+    } else {
+        array.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
+    }
     document.getElementById('total-hotels-found').textContent = `HOTELS FOUND: ${array.length}`
     document.getElementById('hotels').innerHTML = getFinalHTML(array)
 }
@@ -124,7 +129,7 @@ function render(array) {
 render(hotels)
 
 
-// gett liked hotels array and html
+//  liked hotels array and html
 
 document.addEventListener('click', function (e) {
     if (e.target.dataset.uiid) {
@@ -150,6 +155,10 @@ document.addEventListener('click', function (e) {
         render(getLikedHotels())
     } else if (e.target.dataset.allhotels) {
         render(hotels)
+    } else if (e.target.id === 'submit-hotels-search-setings-btn') {
+        render(getSearchedArray())
+    } else if (e.target.id === 'clear-hotels-search-setings-btn') {
+        makeUnchecked()
     }
 })
 
@@ -161,3 +170,54 @@ function getLikedHotels() {
     return likedHotels
 }
 
+// search settings
+
+function getSearchedArray() {
+    let searchedArray = hotels
+    const pool = (document.getElementById('pool').checked) ? 'pool' : ''
+    const parking = (document.getElementById('parking').checked) ? 'parking' : ''
+    const wiFi = (document.getElementById('wi-fi').checked) ? 'wi-fi' : ''
+    const typeOfHousing = (document.getElementById('hotel').checked) ? 'Hotel' : (document.getElementById('motel').checked) ? 'Motel' : (document.getElementById('appartment').checked) ? 'Apartment' : ''
+    if (pool) {
+        searchedArray = searchedArray.filter(function (hotel) {
+            return hotel.hasPool
+        })
+    }
+    if (parking) {
+        searchedArray = searchedArray.filter(function (hotel) {
+            return hotel.hasParking
+        })
+    }
+    if (wiFi) {
+        searchedArray = searchedArray.filter(function (hotel) {
+            return hotel.hasWiFi
+        })
+    }
+    if (typeOfHousing) {
+        searchedArray = searchedArray.filter(function (hotel) {
+            return hotel.type === typeOfHousing
+        })
+    }
+    searchedArray = searchedArray.filter(function (hotel) {
+        return hotel.price <= document.getElementById('range2').textContent
+    })
+    searchedArray = searchedArray.filter(function (hotel) {
+        return hotel.price >= document.getElementById('range1').textContent
+    })
+    return searchedArray
+}
+
+function makeUnchecked() {
+    document.getElementById('pool').checked = false
+    document.getElementById('parking').checked = false
+    document.getElementById('wi-fi').checked = false
+    document.getElementById('hotel').checked = false
+    document.getElementById('motel').checked = false
+    document.getElementById('appartment').checked = false
+    document.getElementById('range2').textContent = 500
+    document.getElementById('range1').textContent = 0
+    sliderOne.value = 0
+    sliderTwo.value = 500
+    fillColor()
+    render(hotels)
+}
