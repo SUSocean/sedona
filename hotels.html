@@ -107,6 +107,13 @@
                             </div>
                         </div>
 
+
+                        <select name="hotels-by-price-display" id="hotels-by-price-display">
+                            <option value="high-price-first">High price first</option>
+                            <option value="low-price-first">Low price first</option>
+                        </select>
+
+
                         <div class="right-side-inputs">
                             <div class="slider-wrapper">
                                 <p>Price, $:</p>
@@ -140,16 +147,9 @@
         <main class="hotels-select-container">
             <div class="hotels-select-header">
                 <span id="total-hotels-found" class='total-hotels-found'></span>
-                <div class="hotels-select-display-settings">
-                    <select name="hotels-by-price-display" id="hotels-by-price-display">
-                        <option value="high-price-first">High price first</option>
-                        <option value="low-price-first">Low price first</option>
-                    </select>
-                    <div class="hotels-grid-display ">
-                        <i class="fa-solid fa-grip active-grid-display"></i>
-                        <i class="fa-solid fa-tv"></i>
-                        <i class="fa-solid fa-list"></i>
-                    </div>
+                <div class="hotels-grid-display ">
+                    <i id="fa-grip" class="fa-solid fa-grip active-grid-display"></i>
+                    <i id="fa-list" class="fa-solid fa-list"></i>
                 </div>
             </div>
             <div id="hotels" class="hotels hotels-grid-version"></div>

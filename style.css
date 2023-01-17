@@ -776,16 +776,10 @@ form .hotels-find-btn {
     font-weight: bold;
 }
 
-.hotels-select-display-settings {
-    width: 40vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.hotels-select-display-settings select,
-.hotels-select-display-settings select option {
-    width: 400px;
+select,
+select option {
+    margin-top: 8rem;
+    width: 200px;
     height: 50px;
     padding: 0 20px;
     font-size: 1.3rem;
@@ -823,6 +817,44 @@ form .hotels-find-btn {
     border-radius: 3px;
     padding: 15px;
 }
+
+.hotel-card-line {
+    width: 1000px;
+    height: 245px;
+    position: relative;
+}
+
+.hotel-card.hotel-card-line h2 {
+    position: absolute;
+    top: 20px;
+    left: 350px;
+}
+
+.hotel-card.hotel-card-line div:nth-of-type(1) {
+    position: absolute;
+    top: 100px;
+    left: 350px;
+    width: 200px;
+}
+
+.hotel-card.hotel-card-line div:nth-of-type(2) {
+    position: absolute;
+    flex-direction: column;
+    top: 100px;
+    right: 15px;
+    width: 200px;
+    gap: 40px;
+}
+
+.hotel-card.hotel-card-line div:nth-of-type(3) {
+    position: absolute;
+    top: 180px;
+    left: 350px;
+    width: 230px;
+    align-items: center;
+}
+
+
 
 .spcBtn-container {
     display: flex;
@@ -922,13 +954,19 @@ button:focus {
 .hotels-search-setings-container span i:hover,
 .hotels-search-setings-container span i:focus,
 .no-color-button:hover,
-.no-color-button:focus {
+.no-color-button:focus,
+#fa-list:hover,
+#fa-list:focus,
+#fa-grip:hover,
+#fa-grip:focus {
     opacity: 70%;
 }
 
 .htmlacademy-logo:active,
 .hotels-search-setings-container span i:active,
-.no-color-button:active {
+.no-color-button:active,
+#fa-list:active,
+#fa-grip:active {
     opacity: 30%;
 }
 
@@ -957,11 +995,11 @@ button:focus {
 
 /* HOTELS SELECT CONTAINER */
 
-.hotels-select-display-settings select:hover,
-.hotels-select-display-settings select:focus {
+select:hover,
+select:focus {
     border: 1px solid #68A2CA;
 }
 
-.hotels-select-display-settings select:active {
+select:active {
     border: 1px solid #3F5E72;
 }

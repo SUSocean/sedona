@@ -159,6 +159,20 @@ document.addEventListener('click', function (e) {
         render(getSearchedArray())
     } else if (e.target.id === 'clear-hotels-search-setings-btn') {
         makeUnchecked()
+    } else if (e.target.id === 'fa-list') {
+        const hotelCards = document.getElementsByClassName('hotel-card')
+        document.getElementById('fa-list').classList.add('active-grid-display')
+        document.getElementById('fa-grip').classList.remove('active-grid-display')
+        for (const hotelCard of hotelCards) {
+            hotelCard.classList.add('hotel-card-line');
+        }
+    } else if (e.target.id === 'fa-grip') {
+        const hotelCards = document.getElementsByClassName('hotel-card')
+        document.getElementById('fa-list').classList.remove('active-grid-display')
+        document.getElementById('fa-grip').classList.add('active-grid-display')
+        for (const hotelCard of hotelCards) {
+            hotelCard.classList.remove('hotel-card-line');
+        }
     }
 })
 
@@ -221,3 +235,4 @@ function makeUnchecked() {
     fillColor()
     render(hotels)
 }
+
